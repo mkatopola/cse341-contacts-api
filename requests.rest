@@ -1,0 +1,7 @@
+@baseUrl = http://localhost:3000/contacts
+
+### Get all contacts
+GET {{baseUrl}}
+
+### Get single contact
+GET {{baseUrl}}/<VALID_MONGO_ID>

@@ -1,0 +1,12 @@
+const express = require('express');
+const router = express.Router();
+const { 
+  getAllContacts,
+  getContact
+} = require('../controllers/contacts');
+
+// GET endpoints
+router.get('/', getAllContacts);
+router.get('/:id', getContact);
+
+module.exports = router;
