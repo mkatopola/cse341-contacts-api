@@ -1,3 +1,5 @@
+// Description: This file contains the logic for handling contacts in the application.
+// It includes functions to get all contacts and a single contact by ID.
 const Contact = require('../models/contact');
 
 // Get all contacts

@@ -1,4 +1,5 @@
-// config/db.js
+// Description: This file contains the database connection logic for MongoDB.
+// It uses the mongoose library to connect to the MongoDB database using the connection string stored in environment variables.
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
