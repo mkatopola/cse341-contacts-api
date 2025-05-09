@@ -1,7 +1,17 @@
-@baseUrl = http://localhost:3000/contacts
+// Description: This file contains REST API requests for managing contacts.
+// It includes requests to get all contacts and a single contact by ID.
 
+//LOCALHOST:3000
 ### Get all contacts
-GET {{baseUrl}}
+GET http://localhost:3000/contacts
 
 ### Get single contact
-GET {{baseUrl}}/<VALID_MONGO_ID>
+GET http://localhost:3000/contacts/681cc919fc672da58d0f32c7
+
+
+//PRODUCTION: RENDER
+### Get all contacts
+GET https://cse341-contacts-api-frsq.onrender.com/contacts
+
+### Get single contact
+GET https://cse341-contacts-api-frsq.onrender.com/contacts/681cc919fc672da58d0f32c7
