@@ -1,0 +1,39 @@
+### Get all contacts
+GET http://localhost:3000/contacts
+
+### Get all contacts with query parameters
+GET http://localhost:3000/contacts?sort=lastName&limit=10
+
+### Get all contacts with query parameters and headers
+GET http://localhost:3000/contacts?sort=lastName&limit=10
+Authorization: Bearer your_token_here
+Content-Type: application/json
+
+### Get all contacts with a specific favorite color
+GET http://localhost:3000/contacts?favoriteColor=purple
+
+### Get single contact
+GET http://localhost:3000/contacts/681cc919fc672da58d0f32c7
+
+### Create contact
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Smith",
+  "email": "alice@example.com",
+  "favoriteColor": "purple",
+  "birthday": "1995-05-15"
+}
+
+### Update contact
+PUT http://localhost:3000/contacts/681cc919fc672da58d0f32c7
+Content-Type: application/json
+
+{
+  "favoriteColor": "green"
+}
+
+### Delete contact
+DELETE http://localhost:3000/contacts/681cc919fc672da58d0f32c7

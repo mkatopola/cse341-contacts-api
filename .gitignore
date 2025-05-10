@@ -1,6 +1,2 @@
 .env
 node_modules
-package-lock.json
-dist
-.vscode
-contacts.txt
