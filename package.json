@@ -4,11 +4,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mkatopola/cse341-contacts-api.git"
+    "url": "https://github.com/mkatopola/cse341-contacts-api.git"
   },
   "author": "Moffat Katopola <moffatkatopola@gmail.com>",
   "license": "ISC",
@@ -19,5 +22,10 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "eslint": "^9.26.0",
+    "globals": "^16.1.0"
   }
 }
