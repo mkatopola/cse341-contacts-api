@@ -53,7 +53,7 @@ exports.updateContact = async (req, res) => {
     if (!updatedContact) {
       return res.status(404).json({ message: "Contact not found" });
     }
-    res.status(200).send();
+    res.status(200).json({ message: "Contact updated successfully" });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -66,7 +66,7 @@ exports.deleteContact = async (req, res) => {
     if (!deletedContact) {
       return res.status(404).json({ message: "Contact not found" });
     }
-    res.status(200).send();
+    res.status(200).json({ message: "Contact deleted successfully" });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
