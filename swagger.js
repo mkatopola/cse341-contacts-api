@@ -6,7 +6,7 @@ const doc = {
     version: "1.0.0",
     description: "API for managing contacts"
   },
-  host: "localhost:3000/contacts",
+  host: "https://cse341-contacts-api-frsq.onrender.com/contacts",
   schemes: ["https"],
   consumes: ["application/json"],
   produces: ["application/json"],
