@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Update contact
-PUT http://localhost:3000/contacts/68251672a3f7b8f48dcc350a
+PUT http://localhost:3000/contacts/68251681cc919fc672da58d0f32c7672a3f7b8f48dcc350a
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ### Delete contact
-DELETE http://localhost:3000/contacts/68251672a3f7b8f48dcc350a
+DELETE http://localhost:3000/contacts/68263237ecfd6afe834f315e
 
 
 
@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 
 ### Update contact
-PUT https://cse341-contacts-api-frsq.onrender.com/contacts/682511ead9c6b6b441cf341e
+PUT https://cse341-contacts-api-frsq.onrender.com/contacts/681cc919fc672da58d0f32c7
 Content-Type: application/json
 
 {

@@ -2,15 +2,21 @@
   "swagger": "2.0",
   "info": {
     "title": "Contacts API",
-    "description": "API for managing contacts",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "description": "API for managing contacts"
   },
-  "host": "cse341-contacts-api-frsq.onrender.com",
+  "host": "localhost:3000/contacts",
   "basePath": "/",
   "schemes": [
     "https"
   ],
   "securityDefinitions": {},
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/": {
       "get": {
