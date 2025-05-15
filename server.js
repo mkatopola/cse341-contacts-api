@@ -2,16 +2,36 @@
 // It sets up the Express server, connects to the MongoDB database, and defines the routes for handling contacts.
 require("dotenv").config();
 const express = require("express");
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger.json");
 const connectDB = require("./config/db");
 const contactsRouter = require("./routes/contacts");
+const cors = require("cors");
 
 const app = express();
-
+app.use(
+  cors({
+    origin: [
+      "https://cse341-contacts-api-frsq.onrender.com",
+      "http://localhost:3000"
+    ]
+  })
+);
 // Add root route to verify server status
 app.get("/", (req, res) => {
   res.send("Contacts API - CSE341 Project");
 });
-
+// Swagger documentation route
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  (req, res, next) => {
+    swaggerFile.host = req.get("host");
+    req.swaggerDoc = swaggerFile;
+    next();
+  },
+  swaggerUi.setup()
+);
 // Middleware
 app.use(express.json());
 
