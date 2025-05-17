@@ -4,19 +4,14 @@ const doc = {
   info: {
     title: "Contacts API",
     version: "1.0.0",
-    description: "Contact management API for CSE341"
+    description: "API for managing contacts with full CRUD operations"
   },
   host: "cse341-contacts-api-frsq.onrender.com",
   basePath: "/contacts",
   schemes: ["https"],
   consumes: ["application/json"],
   produces: ["application/json"],
-  tags: [
-    {
-      name: "Contacts",
-      description: "Contact Management Endpoints"
-    }
-  ],
+  tags: [{ name: "Contacts", description: "Contact management endpoints" }],
   definitions: {
     Contact: {
       type: "object",
@@ -83,6 +78,16 @@ const doc = {
           format: "date-time",
           example: "2024-01-01T00:00:00.000Z"
         }
+      }
+    }
+  },
+  components: {
+    schemas: {
+      Contact: {
+        $ref: "#/definitions/Contact"
+      },
+      ContactResponse: {
+        $ref: "#/definitions/ContactResponse"
       }
     }
   }

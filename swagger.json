@@ -3,14 +3,14 @@
   "info": {
     "title": "Contacts API",
     "version": "1.0.0",
-    "description": "Contact management API for CSE341"
+    "description": "API for managing contacts with full CRUD operations"
   },
   "host": "cse341-contacts-api-frsq.onrender.com",
   "basePath": "/contacts",
   "tags": [
     {
       "name": "Contacts",
-      "description": "Contact Management Endpoints"
+      "description": "Contact management endpoints"
     }
   ],
   "schemes": [
@@ -326,6 +326,16 @@
             }
           }
         }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Contact": {
+        "$ref": "#/definitions/Contact"
+      },
+      "ContactResponse": {
+        "$ref": "#/definitions/ContactResponse"
       }
     }
   }
