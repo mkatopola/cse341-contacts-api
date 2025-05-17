@@ -3,29 +3,20 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "swagger": "node swagger.js",
     "dev": "nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mkatopola/cse341-contacts-api.git"
-  },
-  "author": "Moffat Katopola <moffatkatopola@gmail.com>",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^4.18.2",
+    "express-rate-limit": "^6.11.2",
     "mongoose": "^8.14.1",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
-  },
-  "engines": {
-    "node": ">=18.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",

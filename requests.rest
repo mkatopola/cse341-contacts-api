@@ -14,10 +14,10 @@ Content-Type: application/json
 
 {
   "firstName": "Eunice",
-  "lastName": "Smith",
+  "lastName": "Daniels",
   "email": "eunice@example.com",
-  "favoriteColor": "purple",
-  "birthday": "1995-05-15"
+  "favoriteColor": "blue",
+  "birthday": "1990-07-05"
 }
 
 ### Update contact

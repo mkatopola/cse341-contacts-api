@@ -3,14 +3,19 @@
   "info": {
     "title": "Contacts API",
     "version": "1.0.0",
-    "description": "API for managing contacts"
+    "description": "API for managing contacts with full CRUD operations"
   },
-  "host": "https://cse341-contacts-api-frsq.onrender.com/contacts",
-  "basePath": "/",
+  "host": "cse341-contacts-api-frsq.onrender.com",
+  "basePath": "/contacts",
+  "tags": [
+    {
+      "name": "Contacts",
+      "description": "Contact management endpoints"
+    }
+  ],
   "schemes": [
     "https"
   ],
-  "securityDefinitions": {},
   "consumes": [
     "application/json"
   ],
@@ -24,46 +29,14 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
       "post": {
         "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       }
@@ -85,9 +58,6 @@
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -104,9 +74,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
@@ -126,9 +93,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
@@ -196,6 +160,14 @@
         "birthday": {
           "type": "string",
           "example": "1990-01-01"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2024-01-01T00:00:00.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2024-01-01T00:00:00.000Z"
         }
       }
     }

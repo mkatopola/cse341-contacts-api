@@ -7,21 +7,39 @@ const swaggerFile = require("./swagger.json");
 const connectDB = require("./config/db");
 const contactsRouter = require("./routes/contacts");
 const cors = require("cors");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "https://cse341-contacts-api-frsq.onrender.com",
-      "http://localhost:3000"
-    ]
-  })
-);
-// Add root route to verify server status
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per window
+  standardHeaders: true,
+  legacyHeaders: false
+});
+app.use(limiter);
+
+// CORS
+app.use(cors({
+  origin: [
+    "https://cse341-contacts-api-frsq.onrender.com",
+    "http://localhost:3000"
+  ]
+}));
+
+// Middleware
+app.use(express.json());
+
+// Database connection
+connectDB();
+
+// Routes
 app.get("/", (req, res) => {
   res.send("Contacts API - CSE341 Project");
 });
-// Swagger documentation route
+
+// Swagger documentation
 app.use(
   "/api-docs",
   swaggerUi.serve,
@@ -32,16 +50,11 @@ app.use(
   },
   swaggerUi.setup()
 );
-// Middleware
-app.use(express.json());
 
-// Database connection
-connectDB();
-
-// Routes
+// Contacts routes
 app.use("/contacts", contactsRouter);
 
 const port = process.env.PORT || 3000;
-app.listen(port, () =>
+app.listen(port, () => 
   console.log(`Server running at http://localhost:${port}`)
 );
