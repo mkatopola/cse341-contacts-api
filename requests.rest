@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Update contact
-PUT http://localhost:3000/contacts/68251681cc919fc672da58d0f32c7672a3f7b8f48dcc350a
+PUT http://localhost:3000/contacts/68285946d998a0d172d74f6f
 Content-Type: application/json
 
 {

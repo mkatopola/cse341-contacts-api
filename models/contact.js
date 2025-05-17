@@ -17,9 +17,9 @@ const contactSchema = new mongoose.Schema(
       ],
     },
     favoriteColor: { type: String, required: [true, "Favorite color is required"], trim: true },
-    birthday: { type: Date, required: [true, "Birthday is required"] },
+    birthday: { type: String, required: [true, "Birthday is required"] },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false, timestamps: false }
 );
 
 module.exports = mongoose.model("Contact", contactSchema);
