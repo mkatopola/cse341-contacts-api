@@ -52,9 +52,9 @@ POST https://cse341-contacts-api-frsq.onrender.com/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Alice",
+  "firstName": "Moffat",
   "lastName": "Smith",
-  "email": "alice@example.com",
+  "email": "moffat@example.com",
   "favoriteColor": "purple",
   "birthday": "1995-05-15"
 }

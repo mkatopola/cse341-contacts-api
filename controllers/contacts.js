@@ -153,10 +153,7 @@ exports.createContact = async (req, res) => {
       data: {
         id: savedContact._id,
         links: {
-          view: `/contacts/${savedContact._id}`,
-          update: `/contacts/${savedContact._id}`,
-          delete: `/contacts/${savedContact._id}`
-        }
+          view: `/contacts/${savedContact._id}`        }
       }
     });
   } catch (err) {
