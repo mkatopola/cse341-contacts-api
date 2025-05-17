@@ -25,13 +25,6 @@ exports.getContact = async (req, res) => {
 
 // Create new contact
 exports.createContact = async (req, res) => {
-  const { firstName, lastName, email, favoriteColor, birthday } = req.body;
-  
-  // Validate required fields
-  if (!firstName || !lastName || !email || !favoriteColor || !birthday) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
-
   try {
     const newContact = new Contact(req.body);
     const savedContact = await newContact.save();

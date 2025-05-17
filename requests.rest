@@ -6,16 +6,16 @@
 GET http://localhost:3000/contacts
 
 ### Get single contact
-GET http://localhost:3000/contacts/681cc919fc672da58d0f32c7
+GET http://localhost:3000/contacts/68285946d998a0d172d74f6f
 
 ### Create contact
 POST http://localhost:3000/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Alice",
+  "firstName": "Eunice",
   "lastName": "Smith",
-  "email": "alice@example.com",
+  "email": "eunice@example.com",
   "favoriteColor": "purple",
   "birthday": "1995-05-15"
 }
@@ -72,4 +72,4 @@ Content-Type: application/json
 }
 
 ### Delete contact
-DELETE https://cse341-contacts-api-frsq.onrender.com/contacts/68250b5ee927375127a2e27d
+DELETE https://cse341-contacts-api-frsq.onrender.com/contacts/68285027112b2f05e3d84d5b
