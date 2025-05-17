@@ -23,52 +23,28 @@ const doc = {
             required: true,
             schema: {
               type: "object",
+              required: ["firstName", "lastName", "email", "favoriteColor", "birthday"],
               properties: {
-                firstName: { example: "any" },
-                lastName: { example: "any" },
-                email: { example: "any" },
-                favoriteColor: { example: "any" },
-                birthday: { example: "any" }
+                firstName: { type: "string", example: "John" },
+                lastName: { type: "string", example: "Doe" },
+                email: { type: "string", example: "john@example.com" },
+                favoriteColor: { type: "string", example: "Blue" },
+                birthday: { type: "string", example: "1990-01-01" }
               }
             }
           }
         ],
         responses: {
-          "201": { description: "Created" },
-          "400": { description: "Bad Request" }
-        }
-      }
-    },
-    "/{id}": {
-      put: {
-        tags: ["Contacts"],
-        parameters: [
-          {
-            name: "id",
-            in: "path",
-            required: true,
-            type: "string"
-          },
-          {
-            name: "body",
-            in: "body",
-            required: true,
+          "201": { 
+            description: "Created",
             schema: {
               type: "object",
               properties: {
-                firstName: { example: "any" },
-                lastName: { example: "any" },
-                email: { example: "any" },
-                favoriteColor: { example: "any" },
-                birthday: { example: "any" }
+                id: { type: "string", example: "507f1f77bcf86cd799439011" }
               }
             }
-          }
-        ],
-        responses: {
-          "200": { description: "OK" },
-          "400": { description: "Bad Request" },
-          "404": { description: "Not Found" }
+          },
+          "400": { description: "Bad Request" }
         }
       }
     }

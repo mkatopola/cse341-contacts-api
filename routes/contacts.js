@@ -10,7 +10,43 @@ const {
   deleteContact
 } = require("../controllers/contacts");
 
-// GET endpoints
+/**
+ * @swagger
+ * /contacts:
+ *   post:
+ *     tags: [Contacts]
+ *     description: Create a new contact
+ *     parameters:
+ *       - name: body
+ *         in: body
+ *         required: true
+ *         schema:
+ *           type: object
+ *           required:
+ *             - firstName
+ *             - lastName
+ *             - email
+ *             - favoriteColor
+ *             - birthday
+ *           properties:
+ *             firstName:
+ *               type: string
+ *             lastName:
+ *               type: string
+ *             email:
+ *               type: string
+ *             favoriteColor:
+ *               type: string
+ *             birthday:
+ *               type: string
+ *     responses:
+ *       201:
+ *         description: Created
+ *       400:
+ *         description: Bad Request
+ */
+
+// Existing route definitions
 router.get("/", getAllContacts);
 router.get("/:id", getContact);
 router.post("/", createContact);
