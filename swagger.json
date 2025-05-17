@@ -3,14 +3,14 @@
   "info": {
     "title": "Contacts API",
     "version": "1.0.0",
-    "description": "API for managing contacts with full CRUD operations"
+    "description": "Contact management API for CSE341"
   },
   "host": "cse341-contacts-api-frsq.onrender.com",
   "basePath": "/contacts",
   "tags": [
     {
       "name": "Contacts",
-      "description": "Contact management endpoints"
+      "description": "Contact Management Endpoints"
     }
   ],
   "schemes": [
@@ -105,69 +105,226 @@
     "Contact": {
       "type": "object",
       "properties": {
-        "firstName": {
+        "type": {
           "type": "string",
-          "example": "John"
+          "example": "object"
         },
-        "lastName": {
-          "type": "string",
-          "example": "Doe"
+        "required": {
+          "type": "array",
+          "example": [
+            "firstName",
+            "lastName",
+            "email",
+            "favoriteColor",
+            "birthday"
+          ],
+          "items": {
+            "type": "string"
+          }
         },
-        "email": {
-          "type": "string",
-          "example": "john.doe@example.com"
-        },
-        "favoriteColor": {
-          "type": "string",
-          "example": "Blue"
-        },
-        "birthday": {
-          "type": "string",
-          "example": "1990-01-01"
+        "properties": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "John"
+                }
+              }
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Doe"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "email"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "john.doe@example.com"
+                }
+              }
+            },
+            "favoriteColor": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Blue"
+                }
+              }
+            },
+            "birthday": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "1990-01-01"
+                }
+              }
+            }
+          }
         }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "email",
-        "favoriteColor",
-        "birthday"
-      ]
+      }
     },
     "ContactResponse": {
       "type": "object",
       "properties": {
-        "_id": {
+        "type": {
           "type": "string",
-          "example": "507f1f77bcf86cd799439011"
+          "example": "object"
         },
-        "firstName": {
-          "type": "string",
-          "example": "John"
-        },
-        "lastName": {
-          "type": "string",
-          "example": "Doe"
-        },
-        "email": {
-          "type": "string",
-          "example": "john.doe@example.com"
-        },
-        "favoriteColor": {
-          "type": "string",
-          "example": "Blue"
-        },
-        "birthday": {
-          "type": "string",
-          "example": "1990-01-01"
-        },
-        "createdAt": {
-          "type": "string",
-          "example": "2024-01-01T00:00:00.000Z"
-        },
-        "updatedAt": {
-          "type": "string",
-          "example": "2024-01-01T00:00:00.000Z"
+        "properties": {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "507f1f77bcf86cd799439011"
+                }
+              }
+            },
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "John"
+                }
+              }
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Doe"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "john.doe@example.com"
+                }
+              }
+            },
+            "favoriteColor": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Blue"
+                }
+              }
+            },
+            "birthday": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "1990-01-01"
+                }
+              }
+            },
+            "createdAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date-time"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "2024-01-01T00:00:00.000Z"
+                }
+              }
+            },
+            "updatedAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date-time"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "2024-01-01T00:00:00.000Z"
+                }
+              }
+            }
+          }
         }
       }
     }

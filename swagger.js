@@ -4,7 +4,7 @@ const doc = {
   info: {
     title: "Contacts API",
     version: "1.0.0",
-    description: "API for managing contacts with full CRUD operations"
+    description: "Contact management API for CSE341"
   },
   host: "cse341-contacts-api-frsq.onrender.com",
   basePath: "/contacts",
@@ -12,25 +12,78 @@ const doc = {
   consumes: ["application/json"],
   produces: ["application/json"],
   tags: [
-    { name: "Contacts", description: "Contact management endpoints" }
+    {
+      name: "Contacts",
+      description: "Contact Management Endpoints"
+    }
   ],
   definitions: {
     Contact: {
-      $firstName: "John",
-      $lastName: "Doe",
-      $email: "john.doe@example.com",
-      $favoriteColor: "Blue",
-      $birthday: "1990-01-01"
+      type: "object",
+      required: ["firstName", "lastName", "email", "favoriteColor", "birthday"],
+      properties: {
+        firstName: {
+          type: "string",
+          example: "John"
+        },
+        lastName: {
+          type: "string",
+          example: "Doe"
+        },
+        email: {
+          type: "string",
+          format: "email",
+          example: "john.doe@example.com"
+        },
+        favoriteColor: {
+          type: "string",
+          example: "Blue"
+        },
+        birthday: {
+          type: "string",
+          format: "date",
+          example: "1990-01-01"
+        }
+      }
     },
     ContactResponse: {
-      _id: "507f1f77bcf86cd799439011",
-      firstName: "John",
-      lastName: "Doe",
-      email: "john.doe@example.com",
-      favoriteColor: "Blue",
-      birthday: "1990-01-01",
-      createdAt: "2024-01-01T00:00:00.000Z",
-      updatedAt: "2024-01-01T00:00:00.000Z"
+      type: "object",
+      properties: {
+        _id: {
+          type: "string",
+          example: "507f1f77bcf86cd799439011"
+        },
+        firstName: {
+          type: "string",
+          example: "John"
+        },
+        lastName: {
+          type: "string",
+          example: "Doe"
+        },
+        email: {
+          type: "string",
+          example: "john.doe@example.com"
+        },
+        favoriteColor: {
+          type: "string",
+          example: "Blue"
+        },
+        birthday: {
+          type: "string",
+          example: "1990-01-01"
+        },
+        createdAt: {
+          type: "string",
+          format: "date-time",
+          example: "2024-01-01T00:00:00.000Z"
+        },
+        updatedAt: {
+          type: "string",
+          format: "date-time",
+          example: "2024-01-01T00:00:00.000Z"
+        }
+      }
     }
   }
 };
