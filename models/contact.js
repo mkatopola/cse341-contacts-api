@@ -4,16 +4,8 @@ const mongoose = require("mongoose");
 
 const contactSchema = new mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      required: [true, "First name is required"],
-      trim: true
-    },
-    lastName: {
-      type: String,
-      required: [true, "Last name is required"],
-      trim: true
-    },
+    firstName: { type: String, required: [true, "First name is required"], trim: true },
+    lastName: { type: String, required: [true, "Last name is required"], trim: true },
     email: {
       type: String,
       required: [true, "Email is required"],
@@ -21,24 +13,13 @@ const contactSchema = new mongoose.Schema(
       lowercase: true,
       match: [
         /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-        "Invalid email format"
-      ]
+        "Invalid email format",
+      ],
     },
-    favoriteColor: {
-      type: String,
-      required: [true, "Favorite color is required"],
-      trim: true
-    },
-    birthday: {
-      type: String,
-      required: [true, "Birthday is required"],
-      match: [/^\d{4}-\d{2}-\d{2}$/, "Birthday must be in YYYY-MM-DD format"]
-    }
+    favoriteColor: { type: String, required: [true, "Favorite color is required"], trim: true },
+    birthday: { type: Date, required: [true, "Birthday is required"] },
   },
-  {
-    versionKey: false,
-    timestamps: true
-  }
+  { versionKey: false, timestamps: true }
 );
 
 module.exports = mongoose.model("Contact", contactSchema);

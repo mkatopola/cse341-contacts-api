@@ -1,66 +1,67 @@
 // Description: This file contains the logic for handling contacts in the application.
-// It includes functions to get all contacts and a single contact by ID.
+// It includes functions to get all contacts, a single contact by ID, create a new contact, update an existing contact, and delete a contact.
 const Contact = require("../models/contact");
 
-// Get all contacts
-exports.getAllContacts = async (req, res) => {
+// Helper to pick allowed fields
+const filterBody = (body) => {
+  const allowed = ["firstName", "lastName", "email", "favoriteColor", "birthday"];
+  return Object.keys(body)
+    .filter((key) => allowed.includes(key))
+    .reduce((obj, key) => {
+      obj[key] = body[key];
+      return obj;
+    }, {});
+};
+
+exports.getAllContacts = async (req, res, next) => {
   try {
     const contacts = await Contact.find();
     res.json(contacts);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    next(err);
   }
 };
 
-// Get single contact
-exports.getContact = async (req, res) => {
+exports.getContact = async (req, res, next) => {
   try {
     const contact = await Contact.findById(req.params.id);
     if (!contact) return res.status(404).json({ message: "Contact not found" });
     res.json(contact);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    next(err);
   }
 };
 
-// Create new contact
-exports.createContact = async (req, res) => {
+exports.createContact = async (req, res, next) => {
   try {
     const newContact = new Contact(req.body);
-    const savedContact = await newContact.save();
-    res.status(201).json({ id: savedContact._id });
+    const saved = await newContact.save();
+    res.status(201).json({ id: saved._id });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    err.status = 400;
+    next(err);
   }
 };
 
-// Update contact
-exports.updateContact = async (req, res) => {
+exports.updateContact = async (req, res, next) => {
   try {
-    const updatedContact = await Contact.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    );
-    
-    if (!updatedContact) {
-      return res.status(404).json({ message: "Contact not found" });
-    }
-    res.status(200).json({ message: "Contact updated successfully" });
+    const updates = filterBody(req.body);
+    const updated = await Contact.findByIdAndUpdate(req.params.id, updates, { new: true, runValidators: true });
+    if (!updated) return res.status(404).json({ message: "Contact not found" });
+    res.json({ message: "Contact updated successfully" });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    err.status = 400;
+    next(err);
   }
 };
 
-// Delete contact
-exports.deleteContact = async (req, res) => {
+exports.deleteContact = async (req, res, next) => {
   try {
-    const deletedContact = await Contact.findByIdAndDelete(req.params.id);
-    if (!deletedContact) {
-      return res.status(404).json({ message: "Contact not found" });
-    }
-    res.status(200).json({ message: "Contact deleted successfully" });
+    const deleted = await Contact.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ message: "Contact not found" });
+    res.json({ message: "Contact deleted successfully" });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    err.status = 400;
+    next(err);
   }
 };
